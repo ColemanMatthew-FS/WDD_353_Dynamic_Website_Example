@@ -1,0 +1,12 @@
+let errors = {}
+errors.firstNameMsg = "First name must be more than 1 character and contain letters only"
+errors.lastNameMsg = "Last name must be more than 1 character and contain letters only"
+errors.addressMsg = "Address must contain more than 2 characters and consist of letters and numbers"
+errors.cityMsg = "City must contain more than 1 character and consist of letters only"
+errors.stateMsg = "State must be 2 characters and a valid state initial"
+errors.zipMsg = "Zip code must contain at least 5 characters"
+errors.ageMsg = "Age is required"
+errors.genderMsg = "Gender must be selected"
+errors.consentMsg = "Consent must be checked"
+errors.bioMsg = "Bio must have at least 10 characters"
+errors.status = "Registration Failed"
