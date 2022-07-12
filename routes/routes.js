@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const validation = require("../validation/validation");
 
 router.get("/",(req,res)=>{
     res.render('index', {
@@ -17,6 +18,14 @@ router.get("/register",(req,res)=>{
     res.render('register', {
         pagename: "Registration",
     });
+});
+
+router.post("/register",(req,res)=>{
+    errors = validation(req.body)
+    res.render('register', {
+        pagename: 'Registration Reload',
+        errors: errors
+      });
 });
 
 router.get("/contact",(req,res)=>{

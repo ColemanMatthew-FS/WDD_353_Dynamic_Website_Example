@@ -35,51 +35,54 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
-                        <form id="contactForm">
+                        <form id="contactForm" action="/register" method="post">
+                            <%if(typeof(errors) != "undefined"){%>
+                            <span><%=errors.status%></span>
+                            <% } %>
                             <div class="form-floating">
-                                <input class="form-control" id="firstName" type="text" placeholder="Enter your first name..." required minlength="2" pattern="[a-zA-Z]{2,}"/>
+                                <input class="form-control" id="firstName" name="firstName" type="text" placeholder="Enter your first name..."/>
                                 <%if(typeof(errors) != "undefined"){%>
                                 <span><%=errors.firstNameMsg%></span>
-                                <% } %>
+                                <%}%>
                                 <label for="firstName">First Name</label>
                             </div>
                             <div class="form-floating">
-                                <input class="form-control" id="lastName" type="text" placeholder="Enter your last name..." required minlength="2" pattern="[a-zA-Z]{2,}"/>
+                                <input class="form-control" id="lastName" name="lastName" type="text" placeholder="Enter your last name..."/>
                                 <%if(typeof(errors) != "undefined"){%>
                                 <span><%=errors.lastNameMsg%></span>
                                 <% } %>
                                 <label for="lastName">Last Name</label>
                             </div>
                             <div class="form-floating">
-                                <input class="form-control" id="address" type="text" placeholder="Enter your address..." required minlength="3" pattern="[a-zA-Z0-9]{3,}"/>
+                                <input class="form-control" id="address" name="address" type="text" placeholder="Enter your address..."/>
                                 <%if(typeof(errors) != "undefined"){%>
                                 <span><%=errors.addressMsg%></span>
                                 <% } %>
                                 <label for="address">Address</label>
                             </div>
                             <div class="form-floating">
-                                <input class="form-control" id="city" type="text" placeholder="Enter your city..." required minlength="2" pattern="[a-zA-Z]{2,}"/>
+                                <input class="form-control" id="city" name="city" type="text" placeholder="Enter your city..."/>
                                 <%if(typeof(errors) != "undefined"){%>
                                 <span><%=errors.cityMsg%></span>
                                 <% } %>
                                 <label for="city">City</label>
                             </div>
                             <div class="form-floating">
-                                <input class="form-control" id="state" type="text" placeholder="Enter your state..." required minlength="2" maxlength="2" pattern="[a-zA-Z]{2}"/>
+                                <input class="form-control" id="state" name="state" type="text" placeholder="Enter your state..."/>
                                 <%if(typeof(errors) != "undefined"){%>
                                 <span><%=errors.stateMsg%></span>
                                 <% } %>
                                 <label for="state">State</label>
                             </div>
                             <div class="form-floating">
-                                <input class="form-control" id="zipcode" type="text" placeholder="Enter your zip code..." required minlength="5" pattern="[0-9-]{5,}"/>
+                                <input class="form-control" id="zipcode" name="zipcode" type="text" placeholder="Enter your zip code..."/>
                                 <%if(typeof(errors) != "undefined"){%>
                                 <span><%=errors.zipMsg%></span>
                                 <% } %>
                                 <label for="zipcode">Zip Code</label>
                             </div>
                             <div class="form-floating">
-                                <select class="form-control" id="age" placeholder="Enter your age..." required>
+                                <select class="form-control" id="age" name="age" placeholder="Enter your age...">
                                     <option value="">Select</option>
                                     <option value="13-18">13-18</option>
                                     <option value="18-30">18-30</option>
@@ -93,10 +96,7 @@
                             </div>
                             <div class="form-floating">
                                 <div>
-                                    <input type="radio" id="male" name="gender" value="male" required/>
-                                    <%if(typeof(errors) != "undefined"){%>
-                                    <span><%=errors.genderMsg%></span>
-                                    <% } %>
+                                    <input type="radio" id="male" name="gender" value="male"/>
                                     <label for="male">Male</label>
                                 </div>
                                 <div>
@@ -107,18 +107,21 @@
                                     <input type="radio" id="other" name="gender" value="other"/>
                                     <label for="other">Other</label>
                                 </div>
+                                <%if(typeof(errors) != "undefined"){%>
+                                <span><%=errors.genderMsg%></span>
+                                <% } %>
                             </div>
                             <div class="form-floating">
                                 <div>
-                                    <input id="consent" type="checkbox" name="consent" required/>
-                                    <%if(typeof(errors) != "undefined"){%>
-                                    <span><%=errors.consentMsg%></span>
-                                    <% } %>
+                                    <input type="checkbox" id="consent" name="consent"/>
                                     <label for="consent">Consent</label>
                                 </div>
+                                <%if(typeof(errors) != "undefined"){%>
+                                <span><%=errors.consentMsg%></span>
+                                <% } %>
                             </div>
                             <div class="form-floating">
-                                <textarea class="form-control" id="bio" name="bio" placeholder="Enter your bio..." required minlength="11" pattern="{11,}"></textarea>
+                                <textarea class="form-control" id="bio" name="bio" placeholder="Enter your bio..."></textarea>
                                 <%if(typeof(errors) != "undefined"){%>
                                 <span><%=errors.bioMsg%></span>
                                 <% } %>
